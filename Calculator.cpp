@@ -2,7 +2,7 @@
 //
 
 #include "pch.h"
-#include "UndoRedo.cpp"
+#include "UndoRedo.h"
 #include <iostream>
 
 
@@ -22,30 +22,42 @@ int main()
 	{
 		std::cout << "Choose an operator (+, -, *, /, u for undo, r for redo, e to end)" << std::endl;
 		std::cin >> operation;
-		std::cout << "Pick two numbers" << std::endl;
-		std::cin >> num1;
-		std::cin >> num2;
+		//std::cout << "Pick two numbers" << std::endl;
+		//std::cin >> num1;
+		//std::cin >> num2;
 		switch (operation)
 		{
 		case '+':
+			std::cout << "Pick two numbers" << std::endl;
+			std::cin >> num1;
+			std::cin >> num2;
 			answer = num1 + num2;
 			std::cout << answer << std::endl;
 			undoredo->AddToUndo(answer);
 			break;
 
 		case '-':
+			std::cout << "Pick two numbers" << std::endl;
+			std::cin >> num1;
+			std::cin >> num2;
 			answer = num1 - num2;
 			std::cout << answer << std::endl;
 			undoredo->AddToUndo(answer);
 			break;
 
 		case '*':
+			std::cout << "Pick two numbers" << std::endl;
+			std::cin >> num1;
+			std::cin >> num2;
 			answer = num1*num2;
 			std::cout << answer << std::endl;
 			undoredo->AddToUndo(answer);
 			break;
 
 		case '/':
+			std::cout << "Pick two numbers" << std::endl;
+			std::cin >> num1;
+			std::cin >> num2;
 			answer = num1 / num2;
 			std::cout << answer << std::endl;
 			undoredo->AddToUndo(answer);

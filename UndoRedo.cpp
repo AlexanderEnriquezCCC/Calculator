@@ -20,7 +20,7 @@ void UndoRedo::PrintUndo()
 {
 	if (undoStack.empty())
 	{
-		std::cout << "There are nothing to undo..." << std::endl;
+		std::cout << "There is nothing to undo..." << std::endl;
 	}
 	else
 	{
@@ -39,11 +39,11 @@ void UndoRedo::PrintRedo()
 {
 	if (redoStack.empty())
 	{
-		std::cout << "There are nothing to redo..." << std::endl;
+		std::cout << "There is nothing to redo..." << std::endl;
 	}
 	else
 	{
-		std::cout << undoStack.top() << std::endl;
+		std::cout << redoStack.top() << std::endl;
 		undoStack.push(redoStack.top());
 		redoStack.pop();
 	}
