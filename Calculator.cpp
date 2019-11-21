@@ -9,18 +9,18 @@
 //find out if Karl means to undo to "1+1 = 2", "1+1", or "2", Assume answer for now
 //make method where opSwitcher can recall itself.
 //maybe make a ShowAnswer method for vectors.
-
+	float num1, num2;
+	float answer;
+	char operation;
+	int whileLoop = 1;
 int main()
 {
 	UndoRedo* undoredo = new UndoRedo();
-	float num1, num2;
-	float answer;
-	char undo, redo;
-	char operation;
+
 	
-	while (1)
+	while (whileLoop == 1)
 	{
-		std::cout << "Choose an operator (+, -, *, /, u for undo, r for redo)" << std::endl;
+		std::cout << "Choose an operator (+, -, *, /, u for undo, r for redo, e to end)" << std::endl;
 		std::cin >> operation;
 		std::cout << "Pick two numbers" << std::endl;
 		std::cin >> num1;
@@ -30,29 +30,37 @@ int main()
 		case '+':
 			answer = num1 + num2;
 			std::cout << answer << std::endl;
+			undoredo->AddToUndo(answer);
 			break;
 
 		case '-':
 			answer = num1 - num2;
 			std::cout << answer << std::endl;
+			undoredo->AddToUndo(answer);
 			break;
 
 		case '*':
-			answer = num1 * num2;
+			answer = num1*num2;
 			std::cout << answer << std::endl;
+			undoredo->AddToUndo(answer);
 			break;
 
 		case '/':
 			answer = num1 / num2;
 			std::cout << answer << std::endl;
+			undoredo->AddToUndo(answer);
 			break;
 
 		case 'r':
-
+			undoredo->PrintRedo();
 			break;
 
 		case 'u':
+			undoredo->PrintUndo();
+			break;
 
+		case 'e':
+			whileLoop = 0;
 			break;
 
 		default:
@@ -60,10 +68,7 @@ int main()
 			break;
 		}
 	}
-
-
-
-    std::cout << "Hello World!\n"; 
+	delete(undoredo);
 	return 0;
 }
 

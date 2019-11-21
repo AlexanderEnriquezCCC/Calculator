@@ -18,7 +18,16 @@ void UndoRedo::AddToUndo(float i)
 
 void UndoRedo::PrintUndo()
 {
-
+	if (undoStack.empty())
+	{
+		std::cout << "There are nothing to undo..." << std::endl;
+	}
+	else
+	{
+		std::cout << undoStack.top() << std::endl;
+		redoStack.push(undoStack.top());
+		undoStack.pop();
+	}
 }
 
 void UndoRedo::AddToRedo(float i)
@@ -28,5 +37,14 @@ void UndoRedo::AddToRedo(float i)
 
 void UndoRedo::PrintRedo()
 {
-
+	if (redoStack.empty())
+	{
+		std::cout << "There are nothing to redo..." << std::endl;
+	}
+	else
+	{
+		std::cout << undoStack.top() << std::endl;
+		undoStack.push(redoStack.top());
+		redoStack.pop();
+	}
 }
